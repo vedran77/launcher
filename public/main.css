@@ -189,3 +189,11 @@
   bottom: 10px;
   border-radius: 1000px;
 }
+
+.tab-light:hover {
+  background-color: #bbbec4 !important;
+}
+
+.tab-dark:hover {
+  background-color: #484853 !important;
+}

@@ -48,13 +48,14 @@ const TabBar = (props: IProps) => {
                 : {}),
             }}
           >
-            <TouchableOpacity
-              disabled={selected}
-              style={[
-                styles.listItem,
-                { backgroundColor: theme.itemBackgroundColor },
-              ]}
-              onPress={() => {
+            <div
+              className={[!selected ? `tab-${themeType}` : ""].join("")}
+              style={{
+                ...styles.listItem,
+                backgroundColor: theme.itemBackgroundColor,
+                cursor: !selected ? "pointer" : "default",
+              }}
+              onClick={() => {
                 if (props.selected !== item.type) {
                   props.onChange(item.type);
                 }
@@ -88,7 +89,7 @@ const TabBar = (props: IProps) => {
               >
                 {item.label}
               </Text>
-            </TouchableOpacity>
+            </div>
           </View>
         );
       })}
@@ -105,9 +106,11 @@ const styles = StyleSheet.create({
   },
   listItem: {
     height: sc(35),
-    paddingHorizontal: sc(10),
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    paddingLeft: 6,
+    paddingRight: 6,
     flexDirection: "row",
     borderRadius: sc(5),
   },
